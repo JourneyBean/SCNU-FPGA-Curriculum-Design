@@ -1,0 +1,21 @@
+
+State Machine - |cd_top|sta_led
+Name sta_led.111 sta_led.110 sta_led.101 sta_led.100 sta_led.011 sta_led.010 sta_led.001 sta_led.000 
+sta_led.000 0 0 0 0 0 0 0 0 
+sta_led.001 0 0 0 0 0 0 1 1 
+sta_led.010 0 0 0 0 0 1 0 1 
+sta_led.011 0 0 0 0 1 0 0 1 
+sta_led.100 0 0 0 1 0 0 0 1 
+sta_led.101 0 0 1 0 0 0 0 1 
+sta_led.110 0 1 0 0 0 0 0 1 
+sta_led.111 1 0 0 0 0 0 0 1 
+
+State Machine - |cd_top|sta_next
+Name sta_next.S3 
+sta_next.S2 0 
+sta_next.S3 1 
+
+State Machine - |cd_top|sta_current
+Name sta_current.S3 
+sta_current.S2 0 
+sta_current.S3 1 

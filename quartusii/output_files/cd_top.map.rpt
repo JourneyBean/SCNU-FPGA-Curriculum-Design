@@ -1,0 +1,793 @@
+Analysis & Synthesis report for cd_top
+Wed Aug 12 23:48:50 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |cd_top|sta_led
+  9. State Machine - |cd_top|sta_next
+ 10. State Machine - |cd_top|sta_current
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: Top-level Entity: |cd_top
+ 18. Parameter Settings for User Entity Instance: clkdiv:div_50m_300
+ 19. Parameter Settings for User Entity Instance: clkdiv:div_50m_100
+ 20. Parameter Settings for User Entity Instance: clkdiv:div_50m_2
+ 21. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1
+ 22. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_1
+ 23. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_2
+ 24. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_2
+ 25. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_3
+ 26. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_3
+ 27. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_4
+ 28. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_4
+ 29. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_5
+ 30. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_5
+ 31. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_6
+ 32. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_6
+ 33. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_7
+ 34. Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1"
+ 35. Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul"
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+ 38. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Aug 12 23:48:50 2020            ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; cd_top                                           ;
+; Top-level Entity Name              ; cd_top                                           ;
+; Family                             ; Cyclone IV E                                     ;
+; Total logic elements               ; 445                                              ;
+;     Total combinational functions  ; 332                                              ;
+;     Dedicated logic registers      ; 298                                              ;
+; Total registers                    ; 298                                              ;
+; Total pins                         ; 31                                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 0                                                ;
+; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Total PLLs                         ; 0                                                ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                                      ; cd_top             ; cd_top             ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; ../source/modules/seg.v          ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/seg.v         ;         ;
+; ../source/modules/Registers.v    ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/Registers.v   ;         ;
+; ../source/modules/Multipliers.v  ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/Multipliers.v ;         ;
+; ../source/modules/key_handler.v  ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/key_handler.v ;         ;
+; ../source/modules/clkdiv.v       ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/clkdiv.v      ;         ;
+; ../source/modules/Adders.v       ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/modules/Adders.v      ;         ;
+; ../source/cd_top.v               ; yes             ; User Verilog HDL File  ; Z:/projects/scnu-fpga-curriculum-design/source/cd_top.v              ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 445                      ;
+;                                             ;                          ;
+; Total combinational functions               ; 332                      ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 82                       ;
+;     -- 3 input functions                    ; 56                       ;
+;     -- <=2 input functions                  ; 194                      ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 185                      ;
+;     -- arithmetic mode                      ; 147                      ;
+;                                             ;                          ;
+; Total registers                             ; 298                      ;
+;     -- Dedicated logic registers            ; 298                      ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 31                       ;
+; Embedded Multiplier 9-bit elements          ; 0                        ;
+; Maximum fan-out node                        ; key_handler:k_rst|uAnd~0 ;
+; Maximum fan-out                             ; 292                      ;
+; Total fan-out                               ; 1952                     ;
+; Average fan-out                             ; 2.82                     ;
++---------------------------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                            ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; |cd_top                         ; 332 (57)          ; 298 (62)     ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |cd_top                                           ; work         ;
+;    |Multiplier_Flow_8x8b:u_mul| ; 61 (33)           ; 106 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul                ; work         ;
+;       |HalfAdder:HA_6|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_6 ; work         ;
+;       |Register:REG_1|          ; 7 (7)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_1 ; work         ;
+;       |Register:REG_2|          ; 6 (6)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_2 ; work         ;
+;       |Register:REG_3|          ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_3 ; work         ;
+;       |Register:REG_4|          ; 4 (4)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_4 ; work         ;
+;       |Register:REG_5|          ; 3 (3)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_5 ; work         ;
+;       |Register:REG_6|          ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_6 ; work         ;
+;    |clkdiv:div_50m_100|         ; 54 (54)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_100                        ; work         ;
+;    |clkdiv:div_50m_2|           ; 55 (55)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_2                          ; work         ;
+;    |clkdiv:div_50m_300|         ; 55 (55)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_300                        ; work         ;
+;    |key_handler:k_2|            ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_2                           ; work         ;
+;    |key_handler:k_ans|          ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_ans                         ; work         ;
+;    |key_handler:k_autoinc|      ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_autoinc                     ; work         ;
+;    |key_handler:k_incx|         ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_incx                        ; work         ;
+;    |key_handler:k_incy|         ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_incy                        ; work         ;
+;    |key_handler:k_rst|          ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_rst                         ; work         ;
+;    |seg_display:segdpy|         ; 38 (31)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|seg_display:segdpy                        ; work         ;
+;       |bcd2seg_ca:segdec|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|seg_display:segdpy|bcd2seg_ca:segdec      ; work         ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |cd_top|sta_led                                                                                             ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; sta_led.111 ; sta_led.110 ; sta_led.101 ; sta_led.100 ; sta_led.011 ; sta_led.010 ; sta_led.001 ; sta_led.000 ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; sta_led.000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; sta_led.001 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; sta_led.010 ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; sta_led.011 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; sta_led.100 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
+; sta_led.101 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; sta_led.110 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; sta_led.111 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------+
+; State Machine - |cd_top|sta_next ;
++-------------+--------------------+
+; Name        ; sta_next.S3        ;
++-------------+--------------------+
+; sta_next.S2 ; 0                  ;
+; sta_next.S3 ; 1                  ;
++-------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------+
+; State Machine - |cd_top|sta_current ;
++----------------+--------------------+
+; Name           ; sta_current.S3     ;
++----------------+--------------------+
+; sta_current.S2 ; 0                  ;
+; sta_current.S3 ; 1                  ;
++----------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; seg_bcd_data[8]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[4]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[0]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[12]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[16]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[20]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[9]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[5]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[1]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[13]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[17]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[21]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[10]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[6]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[2]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[14]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[18]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[22]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[11]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[7]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[3]                                     ; VCC                 ; yes                    ;
+; seg_bcd_data[15]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[19]                                    ; VCC                 ; yes                    ;
+; seg_bcd_data[23]                                    ; VCC                 ; yes                    ;
+; Number of user-specified and inferred latches = 24  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal                     ;
++----------------------------------------------------+----------------------------------------+
+; seg_display:segdpy|cnt[3]                          ; Stuck at GND due to stuck port data_in ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][1]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][2]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][3]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][4]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][5]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_6|Q[8..14] ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][2]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][3]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][4]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][5]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[5][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[8..13] ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[4][3]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[4][4]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[4][5]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[4][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[4][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[8..12] ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[3][4]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[3][5]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[3][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[3][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_3|Q[8..11] ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[2][5]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[2][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[2][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_2|Q[8..10] ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[1][6]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[1][7]             ; Lost fanout                            ;
+; Multiplier_Flow_8x8b:u_mul|Register:REG_1|Q[8,9]   ; Lost fanout                            ;
+; sta_led~12                                         ; Lost fanout                            ;
+; sta_led~13                                         ; Lost fanout                            ;
+; sta_led~14                                         ; Lost fanout                            ;
+; sta_next~6                                         ; Lost fanout                            ;
+; sta_current~4                                      ; Lost fanout                            ;
+; Total Number of Removed Registers = 60             ;                                        ;
++----------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                          ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                          ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; seg_display:segdpy|cnt[3]              ; Stuck at GND              ; Multiplier_Flow_8x8b:u_mul|Register:REG_6|Q[14],                                ;
+;                                        ; due to stuck port data_in ; Multiplier_Flow_8x8b:u_mul|Register:REG_6|Q[13],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[13],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[12],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[11],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[10],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[9],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_5|Q[8],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[12],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[11],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[10],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[9],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_4|Q[8],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_3|Q[11],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_3|Q[10],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_3|Q[9],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_3|Q[8],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_2|Q[10],                                ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_2|Q[9],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_2|Q[8],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_1|Q[9],                                 ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|Register:REG_1|Q[8]                                  ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][6] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][6], Multiplier_Flow_8x8b:u_mul|A_reg[4][6], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[3][6], Multiplier_Flow_8x8b:u_mul|A_reg[2][6], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[1][6]                                          ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][7] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][7], Multiplier_Flow_8x8b:u_mul|A_reg[4][7], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[3][7], Multiplier_Flow_8x8b:u_mul|A_reg[2][7], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[1][7]                                          ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][5] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][5], Multiplier_Flow_8x8b:u_mul|A_reg[4][5], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[3][5], Multiplier_Flow_8x8b:u_mul|A_reg[2][5]  ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][4] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][4], Multiplier_Flow_8x8b:u_mul|A_reg[4][4], ;
+;                                        ;                           ; Multiplier_Flow_8x8b:u_mul|A_reg[3][4]                                          ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][3] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][3], Multiplier_Flow_8x8b:u_mul|A_reg[4][3]  ;
+; Multiplier_Flow_8x8b:u_mul|A_reg[6][2] ; Lost Fanouts              ; Multiplier_Flow_8x8b:u_mul|A_reg[5][2]                                          ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 298   ;
+; Number of registers using Synchronous Clear  ; 103   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 284   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 49    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; seg_display:segdpy|bcd[0]              ; 7       ;
+; seg_display:segdpy|bcd[1]              ; 7       ;
+; seg_display:segdpy|bcd[2]              ; 7       ;
+; seg_display:segdpy|bcd[3]              ; 7       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |cd_top|led[3]~reg0                  ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|seg_cs[1] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_2|cnt[2]      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_100|cnt[3]    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |cd_top|tpy[6]                       ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_300|cnt[28]   ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |cd_top|px[6]                        ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|bcd[0]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|tpy                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|tpx                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |cd_top|sta_next                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cd_top ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; S2             ; 01    ; Unsigned Binary                               ;
+; S3             ; 11    ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkdiv:div_50m_300 ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; in_freq        ; 50000000 ; Signed Integer                      ;
+; out_freq       ; 517      ; Signed Integer                      ;
+; width          ; 32       ; Signed Integer                      ;
+; N              ; 96711    ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkdiv:div_50m_100 ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; in_freq        ; 50000000 ; Signed Integer                      ;
+; out_freq       ; 142      ; Signed Integer                      ;
+; width          ; 32       ; Signed Integer                      ;
+; N              ; 352112   ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkdiv:div_50m_2 ;
++----------------+----------+-----------------------------------+
+; Parameter Name ; Value    ; Type                              ;
++----------------+----------+-----------------------------------+
+; in_freq        ; 50000000 ; Signed Integer                    ;
+; out_freq       ; 2        ; Signed Integer                    ;
+; width          ; 32       ; Signed Integer                    ;
+; N              ; 25000000 ; Signed Integer                    ;
++----------------+----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_1 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_2 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_2 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 11    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_3 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_3 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 12    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_4 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_4 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 13    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_5 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_5 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 14    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_6 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_6 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 15    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_7 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1" ;
++------+-------+----------+---------------------------------------------+
+; Port ; Type  ; Severity ; Details                                     ;
++------+-------+----------+---------------------------------------------+
+; A[7] ; Input ; Info     ; Stuck at GND                                ;
++------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul"                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; P[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Wed Aug 12 23:48:20 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/seg.v
+    Info (12023): Found entity 1: bcd2seg_ck
+    Info (12023): Found entity 2: bcd2seg_ca
+    Info (12023): Found entity 3: seg_display
+Info (12021): Found 2 design units, including 2 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/registers.v
+    Info (12023): Found entity 1: Register
+    Info (12023): Found entity 2: ShiftReg
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/multipliers.v
+    Info (12023): Found entity 1: Multiplier_Flow_8x8b
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/key_handler.v
+    Info (12023): Found entity 1: key_handler
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/clkdiv.v
+    Info (12023): Found entity 1: clkdiv
+Info (12021): Found 5 design units, including 5 entities, in source file /projects/scnu-fpga-curriculum-design/source/modules/adders.v
+    Info (12023): Found entity 1: HalfAdder_1b
+    Info (12023): Found entity 2: FullAdder_1b
+    Info (12023): Found entity 3: HalfAdder_4b
+    Info (12023): Found entity 4: HalfAdder
+    Info (12023): Found entity 5: FullAdder
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/scnu-fpga-curriculum-design/source/cd_top.v
+    Info (12023): Found entity 1: cd_top
+Info (12127): Elaborating entity "cd_top" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at cd_top.v(133): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(144): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(170): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(171): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(176): truncated value with size 32 to match size of target (7)
+Warning (10240): Verilog HDL Always Construct warning at cd_top.v(189): inferring latch(es) for variable "seg_bcd_data", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "seg_bcd_data[0]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[1]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[2]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[3]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[4]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[5]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[6]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[7]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[8]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[9]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[10]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[11]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[12]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[13]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[14]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[15]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[16]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[17]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[18]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[19]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[20]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[21]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[22]" at cd_top.v(190)
+Info (10041): Inferred latch for "seg_bcd_data[23]" at cd_top.v(190)
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_300"
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_100"
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_2"
+Info (12128): Elaborating entity "seg_display" for hierarchy "seg_display:segdpy"
+Warning (10230): Verilog HDL assignment warning at seg.v(102): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at seg.v(106): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at seg.v(110): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at seg.v(114): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at seg.v(118): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "bcd2seg_ca" for hierarchy "seg_display:segdpy|bcd2seg_ca:segdec"
+Info (12128): Elaborating entity "key_handler" for hierarchy "key_handler:k_rst"
+Info (12128): Elaborating entity "Multiplier_Flow_8x8b" for hierarchy "Multiplier_Flow_8x8b:u_mul"
+Info (12128): Elaborating entity "HalfAdder" for hierarchy "Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_1"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_2"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_3"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_4"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_5"
+Info (12128): Elaborating entity "Register" for hierarchy "Multiplier_Flow_8x8b:u_mul|Register:REG_6"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg_data[7]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 59 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key[6]"
+    Warning (15610): No output dependent on input pin "key[7]"
+Info (21057): Implemented 497 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 22 output pins
+    Info (21061): Implemented 466 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4636 megabytes
+    Info: Processing ended: Wed Aug 12 23:48:51 2020
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:10
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.map.smsg.
+
+
