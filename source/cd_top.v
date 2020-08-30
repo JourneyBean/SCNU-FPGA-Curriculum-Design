@@ -76,7 +76,7 @@ Multiplier_Flow_8x8b u_mul (px, py, ans, clk_300hz, rst_);
 */
 
 reg     [1:0]   sta_current, sta_next;
-parameter   S2 = 2'b01, S3 = 2'b11;
+parameter   S2 = 2'b01, S3 = 2'b11, S4 = 2'b10;
 
 // 状态跳转部分
 always @ (posedge clk_100hz or negedge rst_) begin
@@ -105,10 +105,10 @@ always @ (posedge clk_100hz or negedge rst_) begin
         key_autoinc_last <= 1'b0;
         autoinc_hold_time <= 4'b0;
 
-        tpx <= 1'b0;
-        tpy <= 1'b0;
-        px <= 1'b0;
-        py <= 1'b0;
+        tpx <= 8'b0;
+        tpy <= 8'b0;
+        px <= 8'b0;
+        py <= 8'b0;
 
         sta_next = S2;
     end
@@ -130,7 +130,7 @@ always @ (posedge clk_100hz or negedge rst_) begin
         if (key_incx) begin
             key_incx_last <= 1'b1;
             if (~key_incx_last && sta_current==S3) begin
-                tpx = tpx+1;
+                px = px+1;
             end
         end
         else begin
@@ -141,7 +141,7 @@ always @ (posedge clk_100hz or negedge rst_) begin
         if (key_incy) begin
             key_incy_last <= 1'b1;
             if (~key_incy_last && sta_current==S3) begin
-                tpy = tpy+1;
+                py = py+1;
             end
         end
         else begin
@@ -152,8 +152,10 @@ always @ (posedge clk_100hz or negedge rst_) begin
         if (key_ans) begin
             key_ans_last <= 1'b1;
             if (~key_ans_last && sta_current==S3) begin
-                px <= tpx;
-                py <= tpy;
+                sta_next = S4;
+            end
+            else if (~key_ans_last && sta_current==S4) begin
+                sta_next = S3;
             end
         end
         else begin
@@ -167,10 +169,18 @@ always @ (posedge clk_100hz or negedge rst_) begin
             if (key_autoinc_last && sta_current==S3) begin
                 if (autoinc_hold_time > 100) begin
                     autoinc_hold_time <= 0;
-                    tpx = tpx+1;
-                    tpy = tpy+1;
-                    px <= tpx;
-                    py <= tpy;
+                    sta_next = S4;
+                end
+                else begin
+                    autoinc_hold_time <= autoinc_hold_time+1;
+                end
+            end
+            else if (key_autoinc_last && sta_current==S4) begin
+                if (autoinc_hold_time > 100) begin
+                    autoinc_hold_time <= 0;
+                    px = px+1;
+                    py = py+1;
+                    sta_next = S3;
                 end
                 else begin
                     autoinc_hold_time <= autoinc_hold_time+1;
@@ -187,7 +197,8 @@ end
 // 数码管输出逻辑
 always @ (*) begin
     if (sta_current == S2) seg_bcd_data = 24'h334018;
-    else if (sta_current == S3) seg_bcd_data = {tpx, tpy, ans[7:0]};
+    else if (sta_current == S3) seg_bcd_data = {4'hf, px, 4'hf, py};
+    else if (sta_current == S4) seg_bcd_data = {8'hff, ans};
 end
 
 
