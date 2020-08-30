@@ -1,5 +1,5 @@
 Flow report for cd_top
-Wed Aug 12 23:50:56 2020
+Sun Aug 30 21:07:47 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Wed Aug 12 23:50:17 2020            ;
+; Flow Status                        ; Successful - Sun Aug 30 21:07:47 2020            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cd_top                                           ;
 ; Top-level Entity Name              ; cd_top                                           ;
 ; Family                             ; Cyclone IV E                                     ;
 ; Device                             ; EP4CE6E22C8                                      ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 400 / 6,272 ( 6 % )                              ;
-;     Total combinational functions  ; 332 / 6,272 ( 5 % )                              ;
-;     Dedicated logic registers      ; 298 / 6,272 ( 5 % )                              ;
-; Total registers                    ; 298                                              ;
+; Total logic elements               ; 505 / 6,272 ( 8 % )                              ;
+;     Total combinational functions  ; 439 / 6,272 ( 7 % )                              ;
+;     Dedicated logic registers      ; 341 / 6,272 ( 5 % )                              ;
+; Total registers                    ; 341                                              ;
 ; Total pins                         ; 31 / 92 ( 34 % )                                 ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/12/2020 23:48:38 ;
+; Start date & time ; 08/30/2020 21:07:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cd_top              ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                         ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+-------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 7246871338251.159724731706748 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 8796753257612.159879284206216 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                            ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                             ; --            ; --          ; --         ;
 ; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing             ; --            ; --          ; --         ;
@@ -89,38 +89,35 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------+---------------+-------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:27     ; 1.0                     ; 4636 MB             ; 00:00:08                           ;
-; Fitter                    ; 00:00:50     ; 5.4                     ; 6000 MB             ; 00:00:48                           ;
-; Assembler                 ; 00:00:21     ; 1.0                     ; 4550 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:36     ; 1.9                     ; 4728 MB             ; 00:00:14                           ;
-; Total                     ; 00:02:14     ; --                      ; --                  ; 00:01:14                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 4601 MB             ; 00:00:03                           ;
+; Fitter               ; 00:00:10     ; 2.0                     ; 5304 MB             ; 00:00:12                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4538 MB             ; 00:00:01                           ;
+; Total                ; 00:00:14     ; --                      ; --                  ; 00:00:16                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; UNTRUSTED        ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; UNTRUSTED        ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; UNTRUSTED        ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; UNTRUSTED        ; Windows 7 ; 6.2        ; x86_64         ;
-+---------------------------+------------------+-----------+------------+----------------+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-7DPP45L  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter               ; DESKTOP-7DPP45L  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler            ; DESKTOP-7DPP45L  ; Windows 7 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
-quartus_fit --read_settings_files=off --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
+quartus_fit --read_settings_files=on --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
 quartus_asm --read_settings_files=off --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
-quartus_sta scnu-fpga-curriculum-design -c cd_top
 
 
 

@@ -38,7 +38,7 @@ clkdiv div_50m_2   (clk_50mhz, clk_2hz,   rst_);
 
 /* -------- 数码管模块 -------- */
 
-reg     [23:0]  seg_bcd_data;
+reg     [29:0]  seg_bcd_data;
 
 seg_display segdpy (seg_bcd_data, seg_data, seg_cs, clk_300hz, rst_);
 
@@ -105,8 +105,6 @@ always @ (posedge clk_100hz or negedge rst_) begin
         key_autoinc_last <= 1'b0;
         autoinc_hold_time <= 4'b0;
 
-        tpx <= 8'b0;
-        tpy <= 8'b0;
         px <= 8'b0;
         py <= 8'b0;
 
@@ -196,9 +194,9 @@ end
 
 // 数码管输出逻辑
 always @ (*) begin
-    if (sta_current == S2) seg_bcd_data = 24'h334018;
-    else if (sta_current == S3) seg_bcd_data = {4'hf, px, 4'hf, py};
-    else if (sta_current == S4) seg_bcd_data = {8'hff, ans};
+    if (sta_current == S2) seg_bcd_data = {5'h3, 5'h3, 5'h4, 5'h0, 5'h1, 5'h8};
+    else if (sta_current == S3) seg_bcd_data = {5'h10, 1'h0, px[7:4], 1'h0, px[3:0], 5'h10, 1'h0, py[7:4], 1'h0, py[3:0]};
+    else if (sta_current == S4) seg_bcd_data = {5'h10, 5'h10, 1'h0, ans[15:12], 1'h0, ans[11:8], 1'h0, ans[7:4], 1'h0, ans[3:0]};
 end
 
 

@@ -1,5 +1,5 @@
 Assembler report for cd_top
-Wed Aug 12 23:50:17 2020
+Sun Aug 30 21:07:47 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -10,8 +10,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof
-  6. Assembler Device Options: Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof
+  5. Assembler Device Options: C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof
+  6. Assembler Device Options: C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Aug 12 23:50:17 2020 ;
+; Assembler Status      ; Successful - Sun Aug 30 21:07:47 2020 ;
 ; Revision Name         ; cd_top                                ;
 ; Top-level Entity Name ; cd_top                                ;
 ; Family                ; Cyclone IV E                          ;
@@ -78,37 +78,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+---------------------------------------------------------------------------+
-; Assembler Generated Files                                                 ;
-+---------------------------------------------------------------------------+
-; File Name                                                                 ;
-+---------------------------------------------------------------------------+
-; Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof ;
-; Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof ;
-+---------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                ;
++------------------------------------------------------------------------------------------+
+; File Name                                                                                ;
++------------------------------------------------------------------------------------------+
+; C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof ;
+; C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof ;
++------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof ;
-+----------------+------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                            ;
-+----------------+------------------------------------------------------------------------------------+
-; Device         ; EP4CE6E22C8                                                                        ;
-; JTAG usercode  ; 0x000C9B64                                                                         ;
-; Checksum       ; 0x000C9B64                                                                         ;
-+----------------+------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.sof ;
++----------------+---------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                           ;
++----------------+---------------------------------------------------------------------------------------------------+
+; Device         ; EP4CE6E22C8                                                                                       ;
+; JTAG usercode  ; 0x000D5F84                                                                                        ;
+; Checksum       ; 0x000D5F84                                                                                        ;
++----------------+---------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/projects/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof ;
-+--------------------+--------------------------------------------------------------------------------+
-; Option             ; Setting                                                                        ;
-+--------------------+--------------------------------------------------------------------------------+
-; Device             ; EPCS4                                                                          ;
-; JTAG usercode      ; 0x00000000                                                                     ;
-; Checksum           ; 0x0671D2C2                                                                     ;
-; Compression Ratio  ; 3                                                                              ;
-+--------------------+--------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.pof ;
++--------------------+-----------------------------------------------------------------------------------------------+
+; Option             ; Setting                                                                                       ;
++--------------------+-----------------------------------------------------------------------------------------------+
+; Device             ; EPCS4                                                                                         ;
+; JTAG usercode      ; 0x00000000                                                                                    ;
+; Checksum           ; 0x06703334                                                                                    ;
+; Compression Ratio  ; 3                                                                                             ;
++--------------------+-----------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Wed Aug 12 23:49:56 2020
+    Info: Processing started: Sun Aug 30 21:07:46 2020
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4550 megabytes
-    Info: Processing ended: Wed Aug 12 23:50:18 2020
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 4538 megabytes
+    Info: Processing ended: Sun Aug 30 21:07:47 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

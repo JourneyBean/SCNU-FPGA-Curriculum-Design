@@ -11,11 +11,13 @@ sta_led.110 0 1 0 0 0 0 0 1
 sta_led.111 1 0 0 0 0 0 0 1 
 
 State Machine - |cd_top|sta_next
-Name sta_next.S3 
-sta_next.S2 0 
-sta_next.S3 1 
+Name sta_next.S3 sta_next.S2 sta_next.S4 
+sta_next.S2 0 0 0 
+sta_next.S4 0 1 1 
+sta_next.S3 1 1 0 
 
 State Machine - |cd_top|sta_current
-Name sta_current.S3 
-sta_current.S2 0 
-sta_current.S3 1 
+Name sta_current.S3 sta_current.S2 sta_current.S4 
+sta_current.S2 0 0 0 
+sta_current.S4 0 1 1 
+sta_current.S3 1 1 0 
