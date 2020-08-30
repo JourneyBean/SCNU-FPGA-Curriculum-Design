@@ -20,7 +20,7 @@ key[2] => key[2].IN1
 key[3] => key[3].IN1
 key[4] => key[4].IN1
 key[5] => key[5].IN1
-key[6] => ~NO_FANOUT~
+key[6] => key[6].IN1
 key[7] => ~NO_FANOUT~
 led[0] <= led[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 led[1] <= led[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -426,6 +426,17 @@ rst_ => sta[2].ACLR
 
 
 |cd_top|key_handler:k_autoinc
+key_in => sta[0].DATAIN
+key_out <= uAnd.DB_MAX_OUTPUT_PORT_TYPE
+clk => sta[0].CLK
+clk => sta[1].CLK
+clk => sta[2].CLK
+rst_ => sta[0].ACLR
+rst_ => sta[1].ACLR
+rst_ => sta[2].ACLR
+
+
+|cd_top|key_handler:k_bcd
 key_in => sta[0].DATAIN
 key_out <= uAnd.DB_MAX_OUTPUT_PORT_TYPE
 clk => sta[0].CLK

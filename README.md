@@ -37,3 +37,7 @@ scnu-fpga-curriculum-design
 ## 使用方法
 
 仅限学习和讨论交流使用，请勿抄袭作为个人作业打发你的教师 :)
+
+## 附加功能
+
+使用BUT7作为BCD/HEX切换按键

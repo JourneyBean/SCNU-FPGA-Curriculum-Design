@@ -45,7 +45,7 @@ seg_display segdpy (seg_bcd_data, seg_data, seg_cs, clk_300hz, rst_);
 
 /* -------- 按键消抖模块 -------- */
 
-wire    key_rst, key_2, key_incx, key_incy, key_ans, key_autoinc;
+wire    key_rst, key_2, key_incx, key_incy, key_ans, key_autoinc, key_bcd;
 
 key_handler k_rst     (key[0], key_rst,     clk_100hz, rst_);
 key_handler k_2       (key[1], key_2,       clk_100hz, rst_);
@@ -53,6 +53,7 @@ key_handler k_incx    (key[2], key_incx,    clk_100hz, rst_);
 key_handler k_incy    (key[3], key_incy,    clk_100hz, rst_);
 key_handler k_ans     (key[4], key_ans,     clk_100hz, rst_);
 key_handler k_autoinc (key[5], key_autoinc, clk_100hz, rst_);
+key_handler k_bcd     (key[6], key_bcd,     clk_100hz, rst_);
 
 
 /* -------- 重置模块 -------- */
@@ -91,9 +92,9 @@ always @ (posedge clk_100hz or negedge rst_) begin
 end
 
 // 状态切换部分和按键事件
-reg     key_2_last, key_incx_last, key_incy_last, key_ans_last, key_autoinc_last;
-reg     [7:0]   tpx, tpy;
+reg     key_2_last, key_incx_last, key_incy_last, key_ans_last, key_autoinc_last, key_bcd_last;
 reg     [6:0]   autoinc_hold_time;
+reg             bcd_mode;
 
 always @ (posedge clk_100hz or negedge rst_) begin
 
@@ -104,6 +105,7 @@ always @ (posedge clk_100hz or negedge rst_) begin
         key_ans_last <= 1'b0;
         key_autoinc_last <= 1'b0;
         autoinc_hold_time <= 4'b0;
+        bcd_mode <= 1'b0;
 
         px <= 8'b0;
         py <= 8'b0;
@@ -189,14 +191,58 @@ always @ (posedge clk_100hz or negedge rst_) begin
             key_autoinc_last <= 1'b0;
         end
 
+        // BCD模式切换按键
+        if (key_bcd) begin
+            key_bcd_last <= 1'b1;
+            if (~key_bcd_last && (sta_current==S3 || sta_current==S4)) begin
+                bcd_mode <= ~bcd_mode;
+            end
+        end
+        else begin
+            key_bcd_last <= 1'b0;
+        end
+
     end
+end
+
+reg     [11:0]  px_bcd, py_bcd;
+reg     [19:0]  ans_bcd;
+reg     [11:0]   px_bcd_temp, py_bcd_temp;
+reg     [19:0]  ans_bcd_temp;
+
+// BCD 生成模块
+always @ (*) begin
+    px_bcd[3:0] = px%10;
+    px_bcd_temp = px/10;
+    px_bcd[7:4] = px_bcd_temp%10;
+    px_bcd[11:8] = px_bcd_temp/10;
+
+    py_bcd[3:0] = py%10;
+    py_bcd_temp = py/10;
+    py_bcd[7:4] = py_bcd_temp%10;
+    py_bcd[11:8] = py_bcd_temp/10;
+
+    ans_bcd[3:0] = ans%10;
+    ans_bcd_temp = ans/10;
+    ans_bcd[7:4] = ans_bcd_temp%10;
+    ans_bcd_temp = ans_bcd_temp/10;
+    ans_bcd[11:8] = ans_bcd_temp%10;
+    ans_bcd_temp = ans_bcd_temp/10;
+    ans_bcd[15:12] = ans_bcd_temp%10;
+    ans_bcd[19:16] = ans_bcd_temp/10;
 end
 
 // 数码管输出逻辑
 always @ (*) begin
     if (sta_current == S2) seg_bcd_data = {5'h3, 5'h3, 5'h4, 5'h0, 5'h1, 5'h8};
-    else if (sta_current == S3) seg_bcd_data = {5'h10, 1'h0, px[7:4], 1'h0, px[3:0], 5'h10, 1'h0, py[7:4], 1'h0, py[3:0]};
-    else if (sta_current == S4) seg_bcd_data = {5'h10, 5'h10, 1'h0, ans[15:12], 1'h0, ans[11:8], 1'h0, ans[7:4], 1'h0, ans[3:0]};
+    else if (sta_current == S3 && bcd_mode==1'b0) seg_bcd_data = {5'h10, 1'h0, px[7:4], 1'h0, px[3:0], 5'h10, 1'h0, py[7:4], 1'h0, py[3:0]};
+    else if (sta_current == S4 && bcd_mode==1'b0) seg_bcd_data = {5'h10, 5'h10, 1'h0, ans[15:12], 1'h0, ans[11:8], 1'h0, ans[7:4], 1'h0, ans[3:0]};
+    else if (sta_current == S3 && bcd_mode==1'b1) begin
+        seg_bcd_data = {1'h0, px_bcd[11:8], 1'h0, px_bcd[7:4], 1'h0, px_bcd[3:0], 1'h0, py_bcd[11:8], 1'h0, py_bcd[7:4], 1'h0, py_bcd[3:0]};
+    end
+    else if (sta_current == S4 && bcd_mode==1'b1) begin
+        seg_bcd_data = {5'h10, 1'h0, ans_bcd[19:16], 1'h0, ans_bcd[15:12], 1'h0, ans_bcd[11:8], 1'h0, ans_bcd[7:4], 1'h0, ans_bcd[3:0]};
+    end 
 end
 
 
