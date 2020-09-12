@@ -21,7 +21,7 @@ module cd_top
     其他按键扫描频率：100Hz
 */
 
-wire    clk_300hz, clk_100hz, clk_2hz;
+wire    clk_300hz, clk_100hz, clk_2hz, clk_32khz, clk_128hz;
 
 defparam div_50m_300.in_freq = 50000000;
 defparam div_50m_300.out_freq = 517;
@@ -35,6 +35,14 @@ defparam div_50m_2.in_freq = 50000000;
 defparam div_50m_2.out_freq = 2;
 clkdiv div_50m_2   (clk_50mhz, clk_2hz,   rst_);
 
+defparam div_50m_32k.in_freq = 50000000;
+defparam div_50m_32k.out_freq = 32000;
+clkdiv div_50m_32k (clk_50mhz, clk_32khz, rst_);
+
+defparam div_50m_128.in_freq = 50000000;
+defparam div_50m_128.out_freq = 128;
+clkdiv div_50m_128 (clk_50mhz, clk_128hz, rst_);
+
 
 /* -------- 数码管模块 -------- */
 
@@ -42,10 +50,14 @@ reg     [29:0]  seg_bcd_data;
 
 seg_display segdpy (seg_bcd_data, seg_data, seg_cs, clk_300hz, rst_);
 
+/* -------- LED显示模式模块 --------*/
+
+reg     led_mode;
+
 
 /* -------- 按键消抖模块 -------- */
 
-wire    key_rst, key_2, key_incx, key_incy, key_ans, key_autoinc, key_bcd;
+wire    key_rst, key_2, key_incx, key_incy, key_ans, key_autoinc, key_bcd, key_ledmode;
 
 key_handler k_rst     (key[0], key_rst,     clk_100hz, rst_);
 key_handler k_2       (key[1], key_2,       clk_100hz, rst_);
@@ -54,6 +66,7 @@ key_handler k_incy    (key[3], key_incy,    clk_100hz, rst_);
 key_handler k_ans     (key[4], key_ans,     clk_100hz, rst_);
 key_handler k_autoinc (key[5], key_autoinc, clk_100hz, rst_);
 key_handler k_bcd     (key[6], key_bcd,     clk_100hz, rst_);
+key_handler k_ledmode (key[7], key_ledmode, clk_100hz, rst_);
 
 
 /* -------- 重置模块 -------- */
@@ -92,7 +105,7 @@ always @ (posedge clk_100hz or negedge rst_) begin
 end
 
 // 状态切换部分和按键事件
-reg     key_2_last, key_incx_last, key_incy_last, key_ans_last, key_autoinc_last, key_bcd_last;
+reg     key_2_last, key_incx_last, key_incy_last, key_ans_last, key_autoinc_last, key_bcd_last, key_ledmode_last;
 reg     [6:0]   autoinc_hold_time;
 reg             bcd_mode;
 
@@ -104,6 +117,9 @@ always @ (posedge clk_100hz or negedge rst_) begin
         key_incy_last <= 1'b0;
         key_ans_last <= 1'b0;
         key_autoinc_last <= 1'b0;
+        key_bcd_last <= 1'b0;
+        key_ledmode_last <= 1'b0;
+
         autoinc_hold_time <= 4'b0;
         bcd_mode <= 1'b0;
 
@@ -202,6 +218,17 @@ always @ (posedge clk_100hz or negedge rst_) begin
             key_bcd_last <= 1'b0;
         end
 
+        // LED模式切换按键
+        if (key_ledmode) begin
+            key_ledmode_last <= 1'b1;
+            if (~key_ledmode_last && sta_current==S2) begin
+                led_mode <= ~led_mode;
+            end
+        end
+        else begin
+            key_ledmode_last <= 1'b0;
+        end
+
     end
 end
 
@@ -246,6 +273,25 @@ always @ (*) begin
 end
 
 
+// LED逻辑
+reg     [7:0]   led_flow;
+reg     [7:0]   led_breath;
+
+// LED 输出选择
+always @ (*) begin
+    if (sta_current == S2) begin
+        if (led_mode == 0) begin
+            led = led_flow;
+        end
+        else begin
+            led = led_breath;
+        end
+    end
+    else begin
+        led = 8'b1111_1111;
+    end
+end
+
 // 流水灯输出逻辑
 reg     [2:0]   sta_led;
 always @ (posedge clk_2hz or negedge rst_) begin
@@ -255,42 +301,241 @@ always @ (posedge clk_2hz or negedge rst_) begin
     else if (sta_current == S2) begin
         case (sta_led)
             3'h0: begin
-                led <= 8'b0111_1111;
+                led_flow <= 8'b0111_1111;
                 sta_led <= 3'h1;
             end
             3'h1: begin
-                led <= 8'b1011_1111;
+                led_flow <= 8'b1011_1111;
                 sta_led <= 3'h2;
             end
             3'h2: begin
-                led <= 8'b1101_1111;
+                led_flow <= 8'b1101_1111;
                 sta_led <= 3'h3;
             end
             3'h3: begin
-                led <= 8'b1110_1111;
+                led_flow <= 8'b1110_1111;
                 sta_led <= 3'h4;
             end
             3'h4: begin
-                led <= 8'b1111_0111;
+                led_flow <= 8'b1111_0111;
                 sta_led <= 3'h5;
             end
             3'h5: begin
-                led <= 8'b1111_1011;
+                led_flow <= 8'b1111_1011;
                 sta_led <= 3'h6;
             end
             3'h6: begin
-                led <= 8'b1111_1101;
+                led_flow <= 8'b1111_1101;
                 sta_led <= 3'h7;
             end
             3'h7: begin
-                led <= 8'b1111_1110;
+                led_flow <= 8'b1111_1110;
                 sta_led <= 3'h0;
             end
         endcase
     end
     else if (sta_current == S3) begin
-        led <= 8'b1111_1111;
+        led_flow <= 8'b1111_1111;
     end
+end
+
+
+// 呼吸灯模块
+reg     [9:0]   breath_counter_max;
+reg     [9:0]   breath_counter_current;
+reg     [9:0]   breath_counter_gate[8];
+
+// current counter controller
+always @ (posedge clk_32khz or negedge rst_) begin
+    if (~rst_) begin
+        breath_counter_max <= 10'd64;
+        breath_counter_current <= 10'd0;
+    end
+    else if (clk_300hz) begin
+        if (breath_counter_current == breath_counter_max) begin
+            breath_counter_current <= 10'd0;
+        end
+        else begin
+            breath_counter_current <= breath_counter_current+1;
+        end
+    end
+end
+
+// gate counter controller
+reg     [7:0]   breath_gate_control;        // 0 increase 1 decrease
+always @ (posedge clk_128hz or negedge rst_) begin
+    if (~rst_) begin
+        breath_gate_control <= 8'b0000_0000;
+
+        breath_counter_gate[0] <= 10'd0;
+        breath_counter_gate[1] <= 10'd8;
+        breath_counter_gate[2] <= 10'd16;
+        breath_counter_gate[3] <= 10'd24;
+        breath_counter_gate[4] <= 10'd32;
+        breath_counter_gate[5] <= 10'd40;
+        breath_counter_gate[6] <= 10'd48;
+        breath_counter_gate[7] <= 10'd56;
+    end
+    else begin
+        
+        // channel 0
+        if (~breath_gate_control[0]) begin       // increase
+            if (breath_counter_gate[0] == breath_counter_max) begin     // increase end
+                breath_gate_control[0] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[0] <= breath_counter_gate[0] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[0] == 0) begin                      // decrease end
+                breath_gate_control[0] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[0] <= breath_counter_gate[0] - 1;
+            end
+        end
+
+        // channel 1
+        if (~breath_gate_control[1]) begin       // increase
+            if (breath_counter_gate[1] == breath_counter_max) begin     // increase end
+                breath_gate_control[1] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[1] <= breath_counter_gate[1] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[1] == 0) begin                      // decrease end
+                breath_gate_control[1] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[1] <= breath_counter_gate[1] - 1;
+            end
+        end
+
+        // channel 2
+        if (~breath_gate_control[2]) begin       // increase
+            if (breath_counter_gate[2] == breath_counter_max) begin     // increase end
+                breath_gate_control[2] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[2] <= breath_counter_gate[2] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[2] == 0) begin                      // decrease end
+                breath_gate_control[2] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[2] <= breath_counter_gate[2] - 1;
+            end
+        end
+
+        // channel 3
+        if (~breath_gate_control[3]) begin       // increase
+            if (breath_counter_gate[3] == breath_counter_max) begin     // increase end
+                breath_gate_control[3] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[3] <= breath_counter_gate[3] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[3] == 0) begin                      // decrease end
+                breath_gate_control[3] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[3] <= breath_counter_gate[3] - 1;
+            end
+        end
+
+        // channel 4
+        if (~breath_gate_control[4]) begin       // increase
+            if (breath_counter_gate[4] == breath_counter_max) begin     // increase end
+                breath_gate_control[4] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[4] <= breath_counter_gate[4] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[4] == 0) begin                      // decrease end
+                breath_gate_control[4] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[4] <= breath_counter_gate[4] - 1;
+            end
+        end
+
+        // channel 5
+        if (~breath_gate_control[5]) begin       // increase
+            if (breath_counter_gate[5] == breath_counter_max) begin     // increase end
+                breath_gate_control[5] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[5] <= breath_counter_gate[5] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[5] == 0) begin                      // decrease end
+                breath_gate_control[5] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[5] <= breath_counter_gate[5] - 1;
+            end
+        end
+
+        // channel 6
+        if (~breath_gate_control[6]) begin       // increase
+            if (breath_counter_gate[6] == breath_counter_max) begin     // increase end
+                breath_gate_control[6] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[6] <= breath_counter_gate[6] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[6] == 0) begin                      // decrease end
+                breath_gate_control[6] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[6] <= breath_counter_gate[6] - 1;
+            end
+        end
+
+        // channel 7
+        if (~breath_gate_control[7]) begin       // increase
+            if (breath_counter_gate[7] == breath_counter_max) begin     // increase end
+                breath_gate_control[7] <= 1'b1;     // to decrease
+            end
+            else begin                                                  // increase not full
+                breath_counter_gate[7] <= breath_counter_gate[7] + 1;
+            end
+        end
+        else begin                              // decrease
+            if (breath_counter_gate[7] == 0) begin                      // decrease end
+                breath_gate_control[7] <= 1'b0;     // to increase
+            end
+            else begin
+                breath_counter_gate[7] <= breath_counter_gate[7] - 1;
+            end
+        end
+
+    end
+end
+
+
+// breath output controller
+always @ (*) begin
+    led_breath[0] <= (breath_counter_gate[0] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[1] <= (breath_counter_gate[1] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[2] <= (breath_counter_gate[2] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[3] <= (breath_counter_gate[3] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[4] <= (breath_counter_gate[4] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[5] <= (breath_counter_gate[5] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[6] <= (breath_counter_gate[6] > breath_counter_current) ? 1'b1 : 1'b0;
+    led_breath[7] <= (breath_counter_gate[7] > breath_counter_current) ? 1'b1 : 1'b0;
 end
 
 
