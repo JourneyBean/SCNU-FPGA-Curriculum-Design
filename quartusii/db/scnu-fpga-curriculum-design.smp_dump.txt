@@ -1,4 +1,11 @@
 
+State Machine - |cd_top|led_mode_last
+Name led_mode_last.11 led_mode_last.10 led_mode_last.01 led_mode_last.00 
+led_mode_last.00 0 0 0 0 
+led_mode_last.01 0 0 1 1 
+led_mode_last.10 0 1 0 1 
+led_mode_last.11 1 0 0 1 
+
 State Machine - |cd_top|sta_led
 Name sta_led.111 sta_led.110 sta_led.101 sta_led.100 sta_led.011 sta_led.010 sta_led.001 sta_led.000 
 sta_led.000 0 0 0 0 0 0 0 0 
@@ -9,6 +16,13 @@ sta_led.100 0 0 0 1 0 0 0 1
 sta_led.101 0 0 1 0 0 0 0 1 
 sta_led.110 0 1 0 0 0 0 0 1 
 sta_led.111 1 0 0 0 0 0 0 1 
+
+State Machine - |cd_top|led_mode
+Name led_mode.11 led_mode.10 led_mode.01 led_mode.00 
+led_mode.00 0 0 0 0 
+led_mode.01 0 0 1 1 
+led_mode.10 0 1 0 1 
+led_mode.11 1 0 0 1 
 
 State Machine - |cd_top|sta_next
 Name sta_next.S3 sta_next.S2 sta_next.S4 

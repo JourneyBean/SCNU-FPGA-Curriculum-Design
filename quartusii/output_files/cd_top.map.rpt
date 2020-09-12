@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cd_top
-Sun Aug 30 22:45:58 2020
+Sat Sep 12 14:47:12 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -13,52 +13,56 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |cd_top|sta_led
-  9. State Machine - |cd_top|sta_next
- 10. State Machine - |cd_top|sta_current
- 11. User-Specified and Inferred Latches
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |cd_top
- 17. Parameter Settings for User Entity Instance: clkdiv:div_50m_300
- 18. Parameter Settings for User Entity Instance: clkdiv:div_50m_100
- 19. Parameter Settings for User Entity Instance: clkdiv:div_50m_2
- 20. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1
- 21. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_1
- 22. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_2
- 23. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_2
- 24. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_3
- 25. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_3
- 26. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_4
- 27. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_4
- 28. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_5
- 29. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_5
- 30. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_6
- 31. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_6
- 32. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_7
- 33. Parameter Settings for Inferred Entity Instance: lpm_divide:Div4
- 34. Parameter Settings for Inferred Entity Instance: lpm_divide:Div5
- 35. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod6
- 36. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
- 37. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
- 38. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5
- 39. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
- 40. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4
- 41. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
- 42. Parameter Settings for Inferred Entity Instance: lpm_divide:Div6
- 43. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod7
- 44. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 45. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 46. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 47. Parameter Settings for Inferred Entity Instance: lpm_divide:Div7
- 48. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 49. Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1"
- 50. Port Connectivity Checks: "seg_display:segdpy"
- 51. Elapsed Time Per Partition
- 52. Analysis & Synthesis Messages
- 53. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |cd_top|led_mode_last
+  9. State Machine - |cd_top|sta_led
+ 10. State Machine - |cd_top|led_mode
+ 11. State Machine - |cd_top|sta_next
+ 12. State Machine - |cd_top|sta_current
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Parameter Settings for User Entity Instance: Top-level Entity: |cd_top
+ 19. Parameter Settings for User Entity Instance: clkdiv:div_50m_300
+ 20. Parameter Settings for User Entity Instance: clkdiv:div_50m_100
+ 21. Parameter Settings for User Entity Instance: clkdiv:div_50m_2
+ 22. Parameter Settings for User Entity Instance: clkdiv:div_50m_32k
+ 23. Parameter Settings for User Entity Instance: clkdiv:div_50m_128
+ 24. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1
+ 25. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_1
+ 26. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_2
+ 27. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_2
+ 28. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_3
+ 29. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_3
+ 30. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_4
+ 31. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_4
+ 32. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_5
+ 33. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_5
+ 34. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_6
+ 35. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|Register:REG_6
+ 36. Parameter Settings for User Entity Instance: Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_7
+ 37. Parameter Settings for Inferred Entity Instance: lpm_divide:Div4
+ 38. Parameter Settings for Inferred Entity Instance: lpm_divide:Div5
+ 39. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod6
+ 40. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 41. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 42. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5
+ 43. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 44. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4
+ 45. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 46. Parameter Settings for Inferred Entity Instance: lpm_divide:Div6
+ 47. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod7
+ 48. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 49. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 50. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 51. Parameter Settings for Inferred Entity Instance: lpm_divide:Div7
+ 52. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 53. Port Connectivity Checks: "Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_1"
+ 54. Port Connectivity Checks: "seg_display:segdpy"
+ 55. Elapsed Time Per Partition
+ 56. Analysis & Synthesis Messages
+ 57. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -84,15 +88,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Aug 30 22:45:58 2020            ;
+; Analysis & Synthesis Status        ; Successful - Sat Sep 12 14:47:11 2020            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cd_top                                           ;
 ; Top-level Entity Name              ; cd_top                                           ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 1,788                                            ;
-;     Total combinational functions  ; 1,660                                            ;
-;     Dedicated logic registers      ; 346                                              ;
-; Total registers                    ; 346                                              ;
+; Total logic elements               ; 2,214                                            ;
+;     Total combinational functions  ; 2,077                                            ;
+;     Dedicated logic registers      ; 526                                              ;
+; Total registers                    ; 526                                              ;
 ; Total pins                         ; 31                                               ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 0                                                ;
@@ -239,28 +243,28 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 1,788                    ;
+; Estimated Total logic elements              ; 2,214                    ;
 ;                                             ;                          ;
-; Total combinational functions               ; 1660                     ;
+; Total combinational functions               ; 2077                     ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 311                      ;
-;     -- 3 input functions                    ; 430                      ;
-;     -- <=2 input functions                  ; 919                      ;
+;     -- 4 input functions                    ; 404                      ;
+;     -- 3 input functions                    ; 593                      ;
+;     -- <=2 input functions                  ; 1080                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 1097                     ;
-;     -- arithmetic mode                      ; 563                      ;
+;     -- normal mode                          ; 1272                     ;
+;     -- arithmetic mode                      ; 805                      ;
 ;                                             ;                          ;
-; Total registers                             ; 346                      ;
-;     -- Dedicated logic registers            ; 346                      ;
+; Total registers                             ; 526                      ;
+;     -- Dedicated logic registers            ; 526                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 31                       ;
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ; Maximum fan-out node                        ; key_handler:k_rst|uAnd~0 ;
-; Maximum fan-out                             ; 332                      ;
-; Total fan-out                               ; 5336                     ;
-; Average fan-out                             ; 2.58                     ;
+; Maximum fan-out                             ; 511                      ;
+; Total fan-out                               ; 7278                     ;
+; Average fan-out                             ; 2.73                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -269,7 +273,7 @@ applicable agreement for further details.
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Library Name ;
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+
-; |cd_top                                ; 1660 (149)        ; 346 (52)     ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |cd_top                                                                                                 ; work         ;
+; |cd_top                                ; 2077 (460)        ; 526 (163)    ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |cd_top                                                                                                 ; work         ;
 ;    |Multiplier_Flow_8x8b:u_mul|        ; 126 (63)          ; 160 (85)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul                                                                      ; work         ;
 ;       |HalfAdder:HA_7|                 ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|HalfAdder:HA_7                                                       ; work         ;
 ;       |Register:REG_1|                 ; 9 (9)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_1                                                       ; work         ;
@@ -279,14 +283,17 @@ applicable agreement for further details.
 ;       |Register:REG_5|                 ; 9 (9)             ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_5                                                       ; work         ;
 ;       |Register:REG_6|                 ; 9 (9)             ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|Multiplier_Flow_8x8b:u_mul|Register:REG_6                                                       ; work         ;
 ;    |clkdiv:div_50m_100|                ; 54 (54)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_100                                                                              ; work         ;
+;    |clkdiv:div_50m_128|                ; 52 (52)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_128                                                                              ; work         ;
 ;    |clkdiv:div_50m_2|                  ; 54 (54)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_2                                                                                ; work         ;
 ;    |clkdiv:div_50m_300|                ; 54 (54)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_300                                                                              ; work         ;
+;    |clkdiv:div_50m_32k|                ; 50 (50)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|clkdiv:div_50m_32k                                                                              ; work         ;
 ;    |key_handler:k_2|                   ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_2                                                                                 ; work         ;
 ;    |key_handler:k_ans|                 ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_ans                                                                               ; work         ;
 ;    |key_handler:k_autoinc|             ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_autoinc                                                                           ; work         ;
 ;    |key_handler:k_bcd|                 ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_bcd                                                                               ; work         ;
 ;    |key_handler:k_incx|                ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_incx                                                                              ; work         ;
 ;    |key_handler:k_incy|                ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_incy                                                                              ; work         ;
+;    |key_handler:k_ledmode|             ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_ledmode                                                                           ; work         ;
 ;    |key_handler:k_rst|                 ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|key_handler:k_rst                                                                               ; work         ;
 ;    |lpm_divide:Div0|                   ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div0                                                                                 ; work         ;
 ;       |lpm_divide_jhm:auto_generated|  ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                   ; work         ;
@@ -308,10 +315,10 @@ applicable agreement for further details.
 ;       |lpm_divide_2jm:auto_generated|  ; 160 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div4|lpm_divide_2jm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_qlh:divider| ; 160 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div4|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
 ;             |alt_u_div_87f:divider|    ; 160 (160)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div4|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider ; work         ;
-;    |lpm_divide:Div5|                   ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5                                                                                 ; work         ;
-;       |lpm_divide_2jm:auto_generated|  ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated                                                   ; work         ;
-;          |sign_div_unsign_qlh:divider| ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
-;             |alt_u_div_87f:divider|    ; 123 (123)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider ; work         ;
+;    |lpm_divide:Div5|                   ; 124 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5                                                                                 ; work         ;
+;       |lpm_divide_2jm:auto_generated|  ; 124 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 124 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
+;             |alt_u_div_87f:divider|    ; 124 (124)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div5|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider ; work         ;
 ;    |lpm_divide:Div6|                   ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div6                                                                                 ; work         ;
 ;       |lpm_divide_2jm:auto_generated|  ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div6|lpm_divide_2jm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_qlh:divider| ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Div6|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
@@ -332,10 +339,10 @@ applicable agreement for further details.
 ;       |lpm_divide_m9m:auto_generated|  ; 58 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod2|lpm_divide_m9m:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_bkh:divider| ; 58 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; work         ;
 ;             |alt_u_div_a4f:divider|    ; 58 (58)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; work         ;
-;    |lpm_divide:Mod3|                   ; 22 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3                                                                                 ; work         ;
-;       |lpm_divide_m9m:auto_generated|  ; 22 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated                                                   ; work         ;
-;          |sign_div_unsign_bkh:divider| ; 22 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; work         ;
-;             |alt_u_div_a4f:divider|    ; 22 (22)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; work         ;
+;    |lpm_divide:Mod3|                   ; 24 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3                                                                                 ; work         ;
+;       |lpm_divide_m9m:auto_generated|  ; 24 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 24 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; work         ;
+;             |alt_u_div_a4f:divider|    ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; work         ;
 ;    |lpm_divide:Mod4|                   ; 162 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod4                                                                                 ; work         ;
 ;       |lpm_divide_5bm:auto_generated|  ; 162 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod4|lpm_divide_5bm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_qlh:divider| ; 162 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod4|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
@@ -352,10 +359,23 @@ applicable agreement for further details.
 ;       |lpm_divide_5bm:auto_generated|  ; 52 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod7|lpm_divide_5bm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_qlh:divider| ; 52 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                       ; work         ;
 ;             |alt_u_div_87f:divider|    ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider ; work         ;
-;    |seg_display:segdpy|                ; 50 (28)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|seg_display:segdpy                                                                              ; work         ;
+;    |seg_display:segdpy|                ; 49 (27)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|seg_display:segdpy                                                                              ; work         ;
 ;       |bcd2seg_ca:segdec|              ; 22 (22)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cd_top|seg_display:segdpy|bcd2seg_ca:segdec                                                            ; work         ;
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------+
+; State Machine - |cd_top|led_mode_last                                                        ;
++------------------+------------------+------------------+------------------+------------------+
+; Name             ; led_mode_last.11 ; led_mode_last.10 ; led_mode_last.01 ; led_mode_last.00 ;
++------------------+------------------+------------------+------------------+------------------+
+; led_mode_last.00 ; 0                ; 0                ; 0                ; 0                ;
+; led_mode_last.01 ; 0                ; 0                ; 1                ; 1                ;
+; led_mode_last.10 ; 0                ; 1                ; 0                ; 1                ;
+; led_mode_last.11 ; 1                ; 0                ; 0                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+
 
 
 Encoding Type:  One-Hot
@@ -373,6 +393,19 @@ Encoding Type:  One-Hot
 ; sta_led.110 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
 ; sta_led.111 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |cd_top|led_mode                                    ;
++-------------+-------------+-------------+-------------+-------------+
+; Name        ; led_mode.11 ; led_mode.10 ; led_mode.01 ; led_mode.00 ;
++-------------+-------------+-------------+-------------+-------------+
+; led_mode.00 ; 0           ; 0           ; 0           ; 0           ;
+; led_mode.01 ; 0           ; 0           ; 1           ; 1           ;
+; led_mode.10 ; 0           ; 1           ; 0           ; 1           ;
+; led_mode.11 ; 1           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+
 
 
 Encoding Type:  One-Hot
@@ -439,17 +472,97 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; seg_display:segdpy|cnt[3]             ; Stuck at GND due to stuck port data_in ;
-; sta_led~12                            ; Lost fanout                            ;
-; sta_led~13                            ; Lost fanout                            ;
-; sta_led~14                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 4 ;                                        ;
-+---------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++----------------------------------------+--------------------------------------------+
+; Register name                          ; Reason for Removal                         ;
++----------------------------------------+--------------------------------------------+
+; seg_display:segdpy|cnt[3]              ; Stuck at GND due to stuck port data_in     ;
+; breath_counter_gate_next[0][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][3]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][4]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][5]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[0][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][4]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[1][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][3]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][5]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[2][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][3]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][4]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[4][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][4]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[5][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][3]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[6][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][0]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][1]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][2]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][6]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][7]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][8]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[7][9]         ; Merged with breath_counter_gate_next[0][0] ;
+; breath_counter_gate_next[3][5]         ; Merged with breath_counter_gate_next[1][5] ;
+; breath_counter_gate_next[2][4]         ; Merged with breath_counter_gate_next[1][3] ;
+; breath_counter_gate_next[3][4]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[4][5]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[5][3]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[6][4]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[6][5]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[7][3]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[7][4]         ; Merged with breath_counter_gate_next[3][3] ;
+; breath_counter_gate_next[7][5]         ; Merged with breath_counter_gate_next[5][5] ;
+; breath_counter_gate_next[0][0]         ; Stuck at GND due to stuck port data_in     ;
+; led_mode_last~4                        ; Lost fanout                                ;
+; led_mode_last~5                        ; Lost fanout                                ;
+; sta_led~12                             ; Lost fanout                                ;
+; sta_led~13                             ; Lost fanout                                ;
+; sta_led~14                             ; Lost fanout                                ;
+; led_mode~7                             ; Lost fanout                                ;
+; led_mode~8                             ; Lost fanout                                ;
+; Total Number of Removed Registers = 84 ;                                            ;
++----------------------------------------+--------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -457,45 +570,74 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 346   ;
-; Number of registers using Synchronous Clear  ; 103   ;
-; Number of registers using Synchronous Load   ; 8     ;
-; Number of registers using Asynchronous Clear ; 331   ;
+; Total registers                              ; 526   ;
+; Number of registers using Synchronous Clear  ; 236   ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 508   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 34    ;
+; Number of registers using Clock Enable       ; 135   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; seg_display:segdpy|bcd[4]              ; 8       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; breath_counter_gate[1][3]               ; 3       ;
+; breath_counter_gate[2][4]               ; 4       ;
+; breath_counter_gate[3][4]               ; 4       ;
+; breath_counter_gate[3][3]               ; 4       ;
+; breath_counter_gate[4][5]               ; 4       ;
+; breath_counter_gate[5][5]               ; 3       ;
+; breath_counter_gate[5][3]               ; 3       ;
+; breath_counter_gate[6][5]               ; 3       ;
+; breath_counter_gate[6][4]               ; 3       ;
+; breath_counter_gate[7][5]               ; 3       ;
+; breath_counter_gate[7][4]               ; 3       ;
+; breath_counter_gate[7][3]               ; 3       ;
+; seg_display:segdpy|bcd[4]               ; 8       ;
+; Total number of inverted registers = 13 ;         ;
++-----------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |cd_top|led[1]~reg0                  ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|seg_cs[0] ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|bcd[3]    ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cd_top|autoinc_hold_time[6]         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_2|cnt[9]      ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_100|cnt[15]   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_300|cnt[15]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |cd_top|py[6]                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[11]             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|py                           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|px                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[20]             ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[16]             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |cd_top|led_flow[1]                    ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|seg_cs[0]   ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |cd_top|seg_display:segdpy|bcd[0]      ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cd_top|autoinc_hold_time[6]           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_128|cnt[5]      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_2|cnt[12]       ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_100|cnt[16]     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_300|cnt[0]      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |cd_top|clkdiv:div_50m_32k|cnt[14]     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |cd_top|breath_counter_gate_next[1][5] ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |cd_top|breath_counter_gate[0][7]      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |cd_top|breath_counter_gate[1][0]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; Yes        ; |cd_top|breath_counter_gate[2][0]      ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |cd_top|breath_counter_gate[3][6]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; Yes        ; |cd_top|breath_counter_gate[4][1]      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |cd_top|breath_counter_gate[5][1]      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |cd_top|breath_counter_gate[6][7]      ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |cd_top|breath_counter_gate[7][9]      ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |cd_top|px[6]                          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |cd_top|breath_counter_gate[3][4]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |cd_top|breath_counter_gate[5][3]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |cd_top|breath_counter_gate[6][4]      ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |cd_top|breath_counter_gate[7][3]      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cd_top|led                            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[12]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|py                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cd_top|px                             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[20]               ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |cd_top|seg_bcd_data[1]                ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |cd_top|led_mode                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
 +------------------------------------------------------------------------+
@@ -546,6 +688,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; width          ; 32       ; Signed Integer                    ;
 ; N              ; 25000000 ; Signed Integer                    ;
 +----------------+----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkdiv:div_50m_32k ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; in_freq        ; 50000000 ; Signed Integer                      ;
+; out_freq       ; 32000    ; Signed Integer                      ;
+; width          ; 32       ; Signed Integer                      ;
+; N              ; 1562     ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkdiv:div_50m_128 ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; in_freq        ; 50000000 ; Signed Integer                      ;
+; out_freq       ; 128      ; Signed Integer                      ;
+; width          ; 32       ; Signed Integer                      ;
+; N              ; 390625   ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1072,7 +1240,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1082,7 +1250,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sun Aug 30 22:45:52 2020
+    Info: Processing started: Sat Sep 12 14:47:03 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 3 design units, including 3 entities, in source file /users/johnson/documents/scnu-fpga-curriculum-design/source/modules/seg.v
@@ -1107,62 +1275,92 @@ Info (12021): Found 5 design units, including 5 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/johnson/documents/scnu-fpga-curriculum-design/source/cd_top.v
     Info (12023): Found entity 1: cd_top
 Info (12127): Elaborating entity "cd_top" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at cd_top.v(133): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(144): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(175): truncated value with size 32 to match size of target (7)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(181): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(182): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(186): truncated value with size 32 to match size of target (7)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(215): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(216): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(217): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(218): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(220): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(221): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(222): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(223): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(225): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(226): truncated value with size 32 to match size of target (20)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(227): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(228): truncated value with size 32 to match size of target (20)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(229): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(230): truncated value with size 32 to match size of target (20)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(231): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at cd_top.v(232): truncated value with size 32 to match size of target (4)
-Warning (10240): Verilog HDL Always Construct warning at cd_top.v(237): inferring latch(es) for variable "seg_bcd_data", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "seg_bcd_data[0]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[1]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[2]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[3]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[4]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[5]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[6]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[7]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[8]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[9]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[10]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[11]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[12]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[13]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[14]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[15]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[16]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[17]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[18]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[19]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[20]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[21]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[22]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[23]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[24]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[25]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[26]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[27]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[28]" at cd_top.v(238)
-Info (10041): Inferred latch for "seg_bcd_data[29]" at cd_top.v(238)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(152): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(163): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(194): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(200): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(201): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(205): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(288): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(289): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(290): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(291): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(293): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(294): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(295): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(296): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(298): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(299): truncated value with size 32 to match size of target (20)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(300): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(301): truncated value with size 32 to match size of target (20)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(302): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(303): truncated value with size 32 to match size of target (20)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(304): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(305): truncated value with size 32 to match size of target (4)
+Warning (10240): Verilog HDL Always Construct warning at cd_top.v(310): inferring latch(es) for variable "seg_bcd_data", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at cd_top.v(405): truncated value with size 32 to match size of target (10)
+Warning (10240): Verilog HDL Always Construct warning at cd_top.v(395): inferring latch(es) for variable "breath_counter_max", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at cd_top.v(450): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(458): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(468): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(476): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(486): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(494): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(504): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(512): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(522): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(530): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(540): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(548): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(558): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(566): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(576): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at cd_top.v(584): truncated value with size 32 to match size of target (10)
+Info (10041): Inferred latch for "breath_counter_max[0]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[1]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[2]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[3]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[4]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[5]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[6]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[7]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[8]" at cd_top.v(395)
+Info (10041): Inferred latch for "breath_counter_max[9]" at cd_top.v(395)
+Info (10041): Inferred latch for "seg_bcd_data[0]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[1]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[2]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[3]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[4]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[5]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[6]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[7]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[8]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[9]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[10]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[11]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[12]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[13]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[14]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[15]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[16]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[17]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[18]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[19]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[20]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[21]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[22]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[23]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[24]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[25]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[26]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[27]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[28]" at cd_top.v(311)
+Info (10041): Inferred latch for "seg_bcd_data[29]" at cd_top.v(311)
 Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_300"
 Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_100"
 Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_2"
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_32k"
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:div_50m_128"
 Info (12128): Elaborating entity "seg_display" for hierarchy "seg_display:segdpy"
 Warning (10230): Verilog HDL assignment warning at seg.v(104): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at seg.v(108): truncated value with size 32 to match size of target (4)
@@ -1325,8 +1523,9 @@ Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal 
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "seg_data[7]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Div5|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_8_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Div7|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_12_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Div7|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_13_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Div7|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_14_result_int[0]~10"
@@ -1349,25 +1548,24 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "lpm_divide:Mod5|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_12_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Mod5|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_13_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Mod5|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_14_result_int[0]~10"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_7_result_int[0]~0"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_6_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_15_result_int[0]~0"
     Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_12_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_13_result_int[0]~10"
     Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_14_result_int[0]~10"
-    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_6_result_int[0]~10"
 Info (144001): Generated suppressed messages file C:/Users/Johnson/Documents/scnu-fpga-curriculum-design/quartusii/output_files/cd_top.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key[7]"
-Info (21057): Implemented 1825 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2251 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 22 output pins
-    Info (21061): Implemented 1794 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 92 warnings
-    Info: Peak virtual memory: 4618 megabytes
-    Info: Processing ended: Sun Aug 30 22:45:58 2020
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:06
+    Info (21061): Implemented 2220 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 108 warnings
+    Info: Peak virtual memory: 4626 megabytes
+    Info: Processing ended: Sat Sep 12 14:47:12 2020
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +------------------------------------------+

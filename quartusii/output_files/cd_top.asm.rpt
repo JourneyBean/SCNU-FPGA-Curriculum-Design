@@ -1,5 +1,5 @@
 Assembler report for cd_top
-Sun Aug 30 22:46:18 2020
+Sat Sep 12 14:47:35 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Aug 30 22:46:18 2020 ;
+; Assembler Status      ; Successful - Sat Sep 12 14:47:35 2020 ;
 ; Revision Name         ; cd_top                                ;
 ; Top-level Entity Name ; cd_top                                ;
 ; Family                ; Cyclone IV E                          ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                                           ;
 +----------------+---------------------------------------------------------------------------------------------------+
 ; Device         ; EP4CE6E22C8                                                                                       ;
-; JTAG usercode  ; 0x0015E3E9                                                                                        ;
-; Checksum       ; 0x0015E3E9                                                                                        ;
+; JTAG usercode  ; 0x001947AF                                                                                        ;
+; Checksum       ; 0x001947AF                                                                                        ;
 +----------------+---------------------------------------------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+-----------------------------------------------------------------------------------------------+
 ; Device             ; EPCS4                                                                                         ;
 ; JTAG usercode      ; 0x00000000                                                                                    ;
-; Checksum           ; 0x066155E2                                                                                    ;
+; Checksum           ; 0x065AF163                                                                                    ;
 ; Compression Ratio  ; 3                                                                                             ;
 +--------------------+-----------------------------------------------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sun Aug 30 22:46:16 2020
+    Info: Processing started: Sat Sep 12 14:47:34 2020
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off scnu-fpga-curriculum-design -c cd_top
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4560 megabytes
-    Info: Processing ended: Sun Aug 30 22:46:18 2020
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4551 megabytes
+    Info: Processing ended: Sat Sep 12 14:47:35 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

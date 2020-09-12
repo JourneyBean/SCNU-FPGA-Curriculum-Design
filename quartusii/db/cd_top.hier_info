@@ -1,5 +1,5 @@
 |cd_top
-clk_50mhz => clk_50mhz.IN3
+clk_50mhz => clk_50mhz.IN5
 seg_data[0] <= seg_display:segdpy.port1
 seg_data[1] <= seg_display:segdpy.port1
 seg_data[2] <= seg_display:segdpy.port1
@@ -21,15 +21,15 @@ key[3] => key[3].IN1
 key[4] => key[4].IN1
 key[5] => key[5].IN1
 key[6] => key[6].IN1
-key[7] => ~NO_FANOUT~
-led[0] <= led[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[1] <= led[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[2] <= led[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[3] <= led[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[4] <= led[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[5] <= led[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[6] <= led[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led[7] <= led[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key[7] => key[7].IN1
+led[0] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[7] <= led.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |cd_top|clkdiv:div_50m_300
@@ -173,6 +173,146 @@ rst_ => cnt[31].ACLR
 
 
 |cd_top|clkdiv:div_50m_2
+clk_in => clk_out~reg0.CLK
+clk_in => cnt[0].CLK
+clk_in => cnt[1].CLK
+clk_in => cnt[2].CLK
+clk_in => cnt[3].CLK
+clk_in => cnt[4].CLK
+clk_in => cnt[5].CLK
+clk_in => cnt[6].CLK
+clk_in => cnt[7].CLK
+clk_in => cnt[8].CLK
+clk_in => cnt[9].CLK
+clk_in => cnt[10].CLK
+clk_in => cnt[11].CLK
+clk_in => cnt[12].CLK
+clk_in => cnt[13].CLK
+clk_in => cnt[14].CLK
+clk_in => cnt[15].CLK
+clk_in => cnt[16].CLK
+clk_in => cnt[17].CLK
+clk_in => cnt[18].CLK
+clk_in => cnt[19].CLK
+clk_in => cnt[20].CLK
+clk_in => cnt[21].CLK
+clk_in => cnt[22].CLK
+clk_in => cnt[23].CLK
+clk_in => cnt[24].CLK
+clk_in => cnt[25].CLK
+clk_in => cnt[26].CLK
+clk_in => cnt[27].CLK
+clk_in => cnt[28].CLK
+clk_in => cnt[29].CLK
+clk_in => cnt[30].CLK
+clk_in => cnt[31].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rst_ => clk_out~reg0.ACLR
+rst_ => cnt[0].ACLR
+rst_ => cnt[1].ACLR
+rst_ => cnt[2].ACLR
+rst_ => cnt[3].ACLR
+rst_ => cnt[4].ACLR
+rst_ => cnt[5].ACLR
+rst_ => cnt[6].ACLR
+rst_ => cnt[7].ACLR
+rst_ => cnt[8].ACLR
+rst_ => cnt[9].ACLR
+rst_ => cnt[10].ACLR
+rst_ => cnt[11].ACLR
+rst_ => cnt[12].ACLR
+rst_ => cnt[13].ACLR
+rst_ => cnt[14].ACLR
+rst_ => cnt[15].ACLR
+rst_ => cnt[16].ACLR
+rst_ => cnt[17].ACLR
+rst_ => cnt[18].ACLR
+rst_ => cnt[19].ACLR
+rst_ => cnt[20].ACLR
+rst_ => cnt[21].ACLR
+rst_ => cnt[22].ACLR
+rst_ => cnt[23].ACLR
+rst_ => cnt[24].ACLR
+rst_ => cnt[25].ACLR
+rst_ => cnt[26].ACLR
+rst_ => cnt[27].ACLR
+rst_ => cnt[28].ACLR
+rst_ => cnt[29].ACLR
+rst_ => cnt[30].ACLR
+rst_ => cnt[31].ACLR
+
+
+|cd_top|clkdiv:div_50m_32k
+clk_in => clk_out~reg0.CLK
+clk_in => cnt[0].CLK
+clk_in => cnt[1].CLK
+clk_in => cnt[2].CLK
+clk_in => cnt[3].CLK
+clk_in => cnt[4].CLK
+clk_in => cnt[5].CLK
+clk_in => cnt[6].CLK
+clk_in => cnt[7].CLK
+clk_in => cnt[8].CLK
+clk_in => cnt[9].CLK
+clk_in => cnt[10].CLK
+clk_in => cnt[11].CLK
+clk_in => cnt[12].CLK
+clk_in => cnt[13].CLK
+clk_in => cnt[14].CLK
+clk_in => cnt[15].CLK
+clk_in => cnt[16].CLK
+clk_in => cnt[17].CLK
+clk_in => cnt[18].CLK
+clk_in => cnt[19].CLK
+clk_in => cnt[20].CLK
+clk_in => cnt[21].CLK
+clk_in => cnt[22].CLK
+clk_in => cnt[23].CLK
+clk_in => cnt[24].CLK
+clk_in => cnt[25].CLK
+clk_in => cnt[26].CLK
+clk_in => cnt[27].CLK
+clk_in => cnt[28].CLK
+clk_in => cnt[29].CLK
+clk_in => cnt[30].CLK
+clk_in => cnt[31].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rst_ => clk_out~reg0.ACLR
+rst_ => cnt[0].ACLR
+rst_ => cnt[1].ACLR
+rst_ => cnt[2].ACLR
+rst_ => cnt[3].ACLR
+rst_ => cnt[4].ACLR
+rst_ => cnt[5].ACLR
+rst_ => cnt[6].ACLR
+rst_ => cnt[7].ACLR
+rst_ => cnt[8].ACLR
+rst_ => cnt[9].ACLR
+rst_ => cnt[10].ACLR
+rst_ => cnt[11].ACLR
+rst_ => cnt[12].ACLR
+rst_ => cnt[13].ACLR
+rst_ => cnt[14].ACLR
+rst_ => cnt[15].ACLR
+rst_ => cnt[16].ACLR
+rst_ => cnt[17].ACLR
+rst_ => cnt[18].ACLR
+rst_ => cnt[19].ACLR
+rst_ => cnt[20].ACLR
+rst_ => cnt[21].ACLR
+rst_ => cnt[22].ACLR
+rst_ => cnt[23].ACLR
+rst_ => cnt[24].ACLR
+rst_ => cnt[25].ACLR
+rst_ => cnt[26].ACLR
+rst_ => cnt[27].ACLR
+rst_ => cnt[28].ACLR
+rst_ => cnt[29].ACLR
+rst_ => cnt[30].ACLR
+rst_ => cnt[31].ACLR
+
+
+|cd_top|clkdiv:div_50m_128
 clk_in => clk_out~reg0.CLK
 clk_in => cnt[0].CLK
 clk_in => cnt[1].CLK
@@ -437,6 +577,17 @@ rst_ => sta[2].ACLR
 
 
 |cd_top|key_handler:k_bcd
+key_in => sta[0].DATAIN
+key_out <= uAnd.DB_MAX_OUTPUT_PORT_TYPE
+clk => sta[0].CLK
+clk => sta[1].CLK
+clk => sta[2].CLK
+rst_ => sta[0].ACLR
+rst_ => sta[1].ACLR
+rst_ => sta[2].ACLR
+
+
+|cd_top|key_handler:k_ledmode
 key_in => sta[0].DATAIN
 key_out <= uAnd.DB_MAX_OUTPUT_PORT_TYPE
 clk => sta[0].CLK
