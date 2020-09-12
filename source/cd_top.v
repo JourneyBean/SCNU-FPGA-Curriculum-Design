@@ -52,7 +52,9 @@ seg_display segdpy (seg_bcd_data, seg_data, seg_cs, clk_300hz, rst_);
 
 /* -------- LED显示模式模块 --------*/
 
-reg     led_mode;
+reg     [1:0]   led_mode;
+reg     [1:0]   led_mode_last;
+reg     [9:0]   breath_counter_gate_next[8];
 
 
 /* -------- 按键消抖模块 -------- */
@@ -122,6 +124,7 @@ always @ (posedge clk_100hz or negedge rst_) begin
 
         autoinc_hold_time <= 4'b0;
         bcd_mode <= 1'b0;
+        led_mode <= 2'b00;
 
         px <= 8'b0;
         py <= 8'b0;
@@ -222,7 +225,50 @@ always @ (posedge clk_100hz or negedge rst_) begin
         if (key_ledmode) begin
             key_ledmode_last <= 1'b1;
             if (~key_ledmode_last && sta_current==S2) begin
-                led_mode <= ~led_mode;
+                if (led_mode == 2'b00) begin
+                    breath_counter_gate_next[0] = 10'd0;
+                    breath_counter_gate_next[1] = 10'd0;
+                    breath_counter_gate_next[2] = 10'd0;
+                    breath_counter_gate_next[3] = 10'd0;
+                    breath_counter_gate_next[4] = 10'd0;
+                    breath_counter_gate_next[5] = 10'd0;
+                    breath_counter_gate_next[6] = 10'd0;
+                    breath_counter_gate_next[7] = 10'd0;
+                    led_mode <= 2'b01;
+                end
+                else if (led_mode == 2'b01) begin
+                    breath_counter_gate_next[0] = 10'd0;
+                    breath_counter_gate_next[1] = 10'd0;
+                    breath_counter_gate_next[2] = 10'd0;
+                    breath_counter_gate_next[3] = 10'd24;
+                    breath_counter_gate_next[4] = 10'd32;
+                    breath_counter_gate_next[5] = 10'd40;
+                    breath_counter_gate_next[6] = 10'd48;
+                    breath_counter_gate_next[7] = 10'd56;
+                    led_mode <= 2'b11;
+                end
+                else if (led_mode == 2'b11) begin
+                    breath_counter_gate_next[0] = 10'd0;
+                    breath_counter_gate_next[1] = 10'd32;
+                    breath_counter_gate_next[2] = 10'd0;
+                    breath_counter_gate_next[3] = 10'd32;
+                    breath_counter_gate_next[4] = 10'd0;
+                    breath_counter_gate_next[5] = 10'd32;
+                    breath_counter_gate_next[6] = 10'd0;
+                    breath_counter_gate_next[7] = 10'd32;
+                    led_mode <= 2'b10;
+                end
+                else if (led_mode == 2'b10) begin
+                    breath_counter_gate_next[0] = 10'd0;
+                    breath_counter_gate_next[1] = 10'd8;
+                    breath_counter_gate_next[2] = 10'd16;
+                    breath_counter_gate_next[3] = 10'd24;
+                    breath_counter_gate_next[4] = 10'd32;
+                    breath_counter_gate_next[5] = 10'd40;
+                    breath_counter_gate_next[6] = 10'd48;
+                    breath_counter_gate_next[7] = 10'd56;
+                    led_mode <= 2'b00;
+                end
             end
         end
         else begin
@@ -280,7 +326,7 @@ reg     [7:0]   led_breath;
 // LED 输出选择
 always @ (*) begin
     if (sta_current == S2) begin
-        if (led_mode == 0) begin
+        if (led_mode == 2'b0) begin
             led = led_flow;
         end
         else begin
@@ -375,151 +421,170 @@ always @ (posedge clk_128hz or negedge rst_) begin
         breath_counter_gate[5] <= 10'd40;
         breath_counter_gate[6] <= 10'd48;
         breath_counter_gate[7] <= 10'd56;
+
+        led_mode_last <= 2'b00;
     end
     else begin
+
+        // update breath mode
+        led_mode_last <= led_mode;
+
+        if (led_mode_last != led_mode) begin
+            breath_counter_gate[0] <= breath_counter_gate_next[0];
+            breath_counter_gate[1] <= breath_counter_gate_next[1];
+            breath_counter_gate[2] <= breath_counter_gate_next[2];
+            breath_counter_gate[3] <= breath_counter_gate_next[3];
+            breath_counter_gate[4] <= breath_counter_gate_next[4];
+            breath_counter_gate[5] <= breath_counter_gate_next[5];
+            breath_counter_gate[6] <= breath_counter_gate_next[6];
+            breath_counter_gate[7] <= breath_counter_gate_next[7];
+        end
+        else begin
         
-        // channel 0
-        if (~breath_gate_control[0]) begin       // increase
-            if (breath_counter_gate[0] == breath_counter_max) begin     // increase end
-                breath_gate_control[0] <= 1'b1;     // to decrease
+            // channel 0
+            if (~breath_gate_control[0]) begin       // increase
+                if (breath_counter_gate[0] == breath_counter_max) begin     // increase end
+                    breath_gate_control[0] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[0] <= breath_counter_gate[0] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[0] <= breath_counter_gate[0] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[0] == 0) begin                      // decrease end
+                    breath_gate_control[0] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[0] <= breath_counter_gate[0] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[0] == 0) begin                      // decrease end
-                breath_gate_control[0] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[0] <= breath_counter_gate[0] - 1;
-            end
-        end
 
-        // channel 1
-        if (~breath_gate_control[1]) begin       // increase
-            if (breath_counter_gate[1] == breath_counter_max) begin     // increase end
-                breath_gate_control[1] <= 1'b1;     // to decrease
+            // channel 1
+            if (~breath_gate_control[1]) begin       // increase
+                if (breath_counter_gate[1] == breath_counter_max) begin     // increase end
+                    breath_gate_control[1] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[1] <= breath_counter_gate[1] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[1] <= breath_counter_gate[1] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[1] == 0) begin                      // decrease end
+                    breath_gate_control[1] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[1] <= breath_counter_gate[1] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[1] == 0) begin                      // decrease end
-                breath_gate_control[1] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[1] <= breath_counter_gate[1] - 1;
-            end
-        end
 
-        // channel 2
-        if (~breath_gate_control[2]) begin       // increase
-            if (breath_counter_gate[2] == breath_counter_max) begin     // increase end
-                breath_gate_control[2] <= 1'b1;     // to decrease
+            // channel 2
+            if (~breath_gate_control[2]) begin       // increase
+                if (breath_counter_gate[2] == breath_counter_max) begin     // increase end
+                    breath_gate_control[2] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[2] <= breath_counter_gate[2] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[2] <= breath_counter_gate[2] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[2] == 0) begin                      // decrease end
+                    breath_gate_control[2] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[2] <= breath_counter_gate[2] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[2] == 0) begin                      // decrease end
-                breath_gate_control[2] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[2] <= breath_counter_gate[2] - 1;
-            end
-        end
 
-        // channel 3
-        if (~breath_gate_control[3]) begin       // increase
-            if (breath_counter_gate[3] == breath_counter_max) begin     // increase end
-                breath_gate_control[3] <= 1'b1;     // to decrease
+            // channel 3
+            if (~breath_gate_control[3]) begin       // increase
+                if (breath_counter_gate[3] == breath_counter_max) begin     // increase end
+                    breath_gate_control[3] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[3] <= breath_counter_gate[3] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[3] <= breath_counter_gate[3] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[3] == 0) begin                      // decrease end
+                    breath_gate_control[3] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[3] <= breath_counter_gate[3] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[3] == 0) begin                      // decrease end
-                breath_gate_control[3] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[3] <= breath_counter_gate[3] - 1;
-            end
-        end
 
-        // channel 4
-        if (~breath_gate_control[4]) begin       // increase
-            if (breath_counter_gate[4] == breath_counter_max) begin     // increase end
-                breath_gate_control[4] <= 1'b1;     // to decrease
+            // channel 4
+            if (~breath_gate_control[4]) begin       // increase
+                if (breath_counter_gate[4] == breath_counter_max) begin     // increase end
+                    breath_gate_control[4] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[4] <= breath_counter_gate[4] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[4] <= breath_counter_gate[4] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[4] == 0) begin                      // decrease end
+                    breath_gate_control[4] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[4] <= breath_counter_gate[4] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[4] == 0) begin                      // decrease end
-                breath_gate_control[4] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[4] <= breath_counter_gate[4] - 1;
-            end
-        end
 
-        // channel 5
-        if (~breath_gate_control[5]) begin       // increase
-            if (breath_counter_gate[5] == breath_counter_max) begin     // increase end
-                breath_gate_control[5] <= 1'b1;     // to decrease
+            // channel 5
+            if (~breath_gate_control[5]) begin       // increase
+                if (breath_counter_gate[5] == breath_counter_max) begin     // increase end
+                    breath_gate_control[5] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[5] <= breath_counter_gate[5] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[5] <= breath_counter_gate[5] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[5] == 0) begin                      // decrease end
+                    breath_gate_control[5] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[5] <= breath_counter_gate[5] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[5] == 0) begin                      // decrease end
-                breath_gate_control[5] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[5] <= breath_counter_gate[5] - 1;
-            end
-        end
 
-        // channel 6
-        if (~breath_gate_control[6]) begin       // increase
-            if (breath_counter_gate[6] == breath_counter_max) begin     // increase end
-                breath_gate_control[6] <= 1'b1;     // to decrease
+            // channel 6
+            if (~breath_gate_control[6]) begin       // increase
+                if (breath_counter_gate[6] == breath_counter_max) begin     // increase end
+                    breath_gate_control[6] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[6] <= breath_counter_gate[6] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[6] <= breath_counter_gate[6] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[6] == 0) begin                      // decrease end
+                    breath_gate_control[6] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[6] <= breath_counter_gate[6] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[6] == 0) begin                      // decrease end
-                breath_gate_control[6] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[6] <= breath_counter_gate[6] - 1;
-            end
-        end
 
-        // channel 7
-        if (~breath_gate_control[7]) begin       // increase
-            if (breath_counter_gate[7] == breath_counter_max) begin     // increase end
-                breath_gate_control[7] <= 1'b1;     // to decrease
+            // channel 7
+            if (~breath_gate_control[7]) begin       // increase
+                if (breath_counter_gate[7] == breath_counter_max) begin     // increase end
+                    breath_gate_control[7] <= 1'b1;     // to decrease
+                end
+                else begin                                                  // increase not full
+                    breath_counter_gate[7] <= breath_counter_gate[7] + 1;
+                end
             end
-            else begin                                                  // increase not full
-                breath_counter_gate[7] <= breath_counter_gate[7] + 1;
+            else begin                              // decrease
+                if (breath_counter_gate[7] == 0) begin                      // decrease end
+                    breath_gate_control[7] <= 1'b0;     // to increase
+                end
+                else begin
+                    breath_counter_gate[7] <= breath_counter_gate[7] - 1;
+                end
             end
-        end
-        else begin                              // decrease
-            if (breath_counter_gate[7] == 0) begin                      // decrease end
-                breath_gate_control[7] <= 1'b0;     // to increase
-            end
-            else begin
-                breath_counter_gate[7] <= breath_counter_gate[7] - 1;
-            end
+
         end
 
     end
